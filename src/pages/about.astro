@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+const pageTitle = "All About Me";
+const identity = {
+  firstName: "Darwin",
+  country: "U.S.",
+  occupation: "Web Developer",
+  hobbies: ["Having Fun", "Programming", "Gaming"],
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = false;
+const finished = false;
+const goal = 3;
+const accent = 'navy'
+---
+<head>
+	<title>{pageTitle}</title>
+</head>
+    <style define:vars={{accent}}>
+      body {
+        color: purple;
+/*        font-size: 4rem;*/
+        font-family: sans-serif;
+      }
+      .skill {
+      	color: var(--accent);
+      }
+    </style>
+<a href="/">Home</a>
+<a href="/about/">About</a>
+<body>
+  
+  <h1>{pageTitle}</h1>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+  }
+</ul>
+<p>My skills are:</p>
+<ul>
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
+</ul>
+
+{happy && <p>I am happy to be learning Astro!</p>}
+
+{finished && <p>I finished this tutorial!</p>}
+
+<p>My goal to finish this project is {goal} Days</p>
+
+
+</body>
